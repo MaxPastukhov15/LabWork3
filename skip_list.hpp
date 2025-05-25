@@ -22,18 +22,13 @@ private:
         Node(const key_T& in_key, const T& in_value, Node* in_prev, size_t in_level) 
             : key(in_key), value(in_value), prev(in_prev), next(in_level, nullptr) {}
         
-        ~Node() {
-            for (auto& ptr : next) {
-                ptr = nullptr;
-            }
-        }
+        ~Node() { for (auto& ptr : next) ptr = nullptr; }
         
         Node* previous_on_level(size_t in_level) {
             if (in_level >= next.size()) return nullptr;
             Node* current = prev;
-            while (current && current->next.size() <= in_level) {
-                current = current->prev;
-            }
+            while (current && current->next.size() <= in_level) current = current->prev;
+            
             return current;
         }
         
@@ -53,23 +48,18 @@ private:
     
     size_t random_level() {
         size_t level = 1;
-        while (dis(gen) < skip_probability && level < max_level) {
-            level++;
-        }
+        while (dis(gen) < skip_probability && level < max_level) level++;
         return level;
     }
     
     Node* find_node(const key_T& key) const {
         Node* current = head;
         for (int i = current_max_level - 1; i >= 0; --i) {
-            while (current->next[i] && current->next[i]->key < key) {
-                current = current->next[i];
-            }
+            while (current->next[i] && current->next[i]->key < key) current = current->next[i];
         }
         current = current->next[0];
-        if (current && current->key == key) {
-            return current;
-        }
+        if (current && current->key == key) return current;
+        
         return nullptr;
     }
     
@@ -77,9 +67,8 @@ private:
         std::vector<Node*> predecessors(current_max_level, nullptr);
         Node* current = head;
         for (int i = current_max_level - 1; i >= 0; --i) {
-            while (current->next[i] && current->next[i]->key < key) {
-                current = current->next[i];
-            }
+            while (current->next[i] && current->next[i]->key < key) current = current->next[i];
+           
             predecessors[i] = current;
         }
         return predecessors;
@@ -101,9 +90,8 @@ public:
         }
         
         iterator& operator++() {
-            if (current_node) {
-                current_node = current_node->next[0];
-            }
+            if (current_node) current_node = current_node->next[0];
+            
             return *this;
         }
         
@@ -114,9 +102,8 @@ public:
         }
         
         iterator& operator--() {
-            if (current_node) {
-                current_node = current_node->prev;
-            }
+            if (current_node) current_node = current_node->prev;
+            
             return *this;
         }
         
@@ -127,16 +114,13 @@ public:
         }
         
         iterator& operator+=(size_t n) {
-            while (n-- > 0 && current_node) {
-                current_node = current_node->next[0];
-            }
+            while (n-- > 0 && current_node) current_node = current_node->next[0];
             return *this;
         }
         
         iterator& operator-=(size_t n) {
-            while (n-- > 0 && current_node) {
-                current_node = current_node->prev;
-            }
+            while (n-- > 0 && current_node) current_node = current_node->prev;
+           
             return *this;
         }
         
@@ -162,15 +146,9 @@ public:
             return !(*this == other);
         }
         
-        void remove() {
-            if (current_node) {
-                current_list->remove(current_node->key);
-            }
-        }
+        void remove() {if (current_node) current_list->remove(current_node->key);}
         
-        key_T get_key() const {
-            return current_node->key;
-        }
+        key_T get_key() const {return current_node->key;}
     };
     
     skip_list(size_t in_max_level = 16, double in_skip_prob = 0.5) 
@@ -191,74 +169,13 @@ public:
         delete tail;
     }
     
-    iterator begin() {
-        return iterator(this, head->next[0] != tail ? head->next[0] : nullptr);
-    }
+    iterator begin() {return iterator(this, head->next[0] != tail ? head->next[0] : nullptr);}
     
-    iterator end() {
-        return iterator(this, nullptr);
-    }
+    iterator end() {return iterator(this, nullptr);}
     
-    void insert(const key_T& key, const T& value) {
-        auto predecessors = get_predecessors(key);
-        
-        if (predecessors[0]->next[0] != tail && predecessors[0]->next[0]->key == key) {
-            // Key already exists, update value
-            predecessors[0]->next[0]->value = value;
-            return;
-        }
-        
-        size_t new_node_level = random_level();
-        if (new_node_level > current_max_level) {
-            for (size_t i = current_max_level; i < new_node_level; ++i) {
-                predecessors[i] = head;
-            }
-            current_max_level = new_node_level;
-        }
-        
-        Node* new_node = new Node(key, value, predecessors[0], new_node_level);
-        
-        for (size_t i = 0; i < new_node_level; ++i) {
-            new_node->next[i] = predecessors[i]->next[i];
-            predecessors[i]->next[i] = new_node;
-        }
-        
-        new_node->prev = predecessors[0];
-        if (new_node->next[0] != tail) {
-            new_node->next[0]->prev = new_node;
-        } else {
-            tail->prev = new_node;
-        }
-        
-        element_count++;
-    }
+    void insert(const key_T& key, const T& value);
     
-    void remove(const key_T& key) {
-        auto predecessors = get_predecessors(key);
-        Node* to_remove = predecessors[0]->next[0];
-        
-        if (to_remove == tail || to_remove->key != key) {
-            return; // Key not found
-        }
-        
-        for (size_t i = 0; i < to_remove->next.size(); ++i) {
-            predecessors[i]->next[i] = to_remove->next[i];
-        }
-        
-        if (to_remove->next[0] != tail) {
-            to_remove->next[0]->prev = to_remove->prev;
-        } else {
-            tail->prev = to_remove->prev;
-        }
-        
-        delete to_remove;
-        element_count--;
-        
-        // Update current_max_level if needed
-        while (current_max_level > 1 && head->next[current_max_level - 1] == tail) {
-            current_max_level--;
-        }
-    }
+    void remove(const key_T& key);
     
     iterator find(const key_T& key) {
         Node* node = find_node(key);
@@ -274,30 +191,11 @@ public:
         return node->value;
     }
     
-    size_t size() const {
-        return element_count;
-    }
+    size_t size() const { return element_count;}
     
-    bool empty() const {
-        return element_count == 0;
-    }
+    bool empty() const {return element_count == 0;}
     
-    void clear() {
-        Node* current = head->next[0];
-        while (current != tail) {
-            Node* temp = current;
-            current = current->next[0];
-            delete temp;
-        }
-        
-        for (size_t i = 0; i < max_level; ++i) {
-            head->next[i] = tail;
-        }
-        tail->prev = head;
-        
-        current_max_level = 1;
-        element_count = 0;
-    }
+    void clear();
 };
 
 
