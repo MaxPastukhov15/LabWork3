@@ -30,11 +30,16 @@ size_t skip_list<key_T, T>::random_level() {
 template <typename key_T, typename T>
 typename skip_list<key_T, T>::Node* skip_list<key_T, T>::find_node(const key_T& key) const {
     Node* current = head;
-    for (int i = current_max_level - 1; i >= 0; --i) {
-        while (current->next[i] && current->next[i]->key < key) current = current->next[i];
-    }
-    current = current->next[0];
-    return (current && current->key == key) ? current : nullptr;
+        for (int i = current_max_level - 1; i >= 0; --i) {
+            while (current->next[i] != tail && comp(current->next[i]->key, key)) {
+                current = current->next[i];
+            }
+        }
+        current = current->next[0];
+        if (current != tail && !comp(key, current->key) && !comp(current->key, key)) {
+            return current;
+        }
+        return nullptr;
 }
 
 template <typename key_T, typename T>
