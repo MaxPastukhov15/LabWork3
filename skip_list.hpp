@@ -5,12 +5,12 @@
 #include <random>
 #include <ctime>
 
-template <typename key_T, typename T>
+template <typename key_T, typename T, typename Compare = std::less<key_T>>
 class skip_list {
 private:
     size_t max_level;
     double skip_probability;
-    
+    Compare comp;
     struct Node {
         key_T key;
         T value;
