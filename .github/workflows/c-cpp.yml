@@ -1,0 +1,35 @@
+name: STL container ski_list
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install -y g++ make cmake libeigen3-dev 
+
+      - name: Install Google Test
+        run: |
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          cmake -S . -B build
+          cmake --build build
+          sudo cmake --install build
+
+      - name: Build and run tests 
+        run: |
+          make 
+
+      
+        
