@@ -5,8 +5,6 @@
 #include <random>
 #include <ctime>
 
-using std::swap;
-
 template <typename key_T, typename T>
 class skip_list {
 private:
@@ -28,7 +26,6 @@ private:
             if (in_level >= next.size()) return nullptr;
             Node* current = prev;
             while (current && current->next.size() <= in_level) current = current->prev;
-            
             return current;
         }
         
@@ -46,33 +43,9 @@ private:
     std::mt19937 gen;
     std::uniform_real_distribution<> dis;
     
-    size_t random_level() {
-        size_t level = 1;
-        while (dis(gen) < skip_probability && level < max_level) level++;
-        return level;
-    }
-    
-    Node* find_node(const key_T& key) const {
-        Node* current = head;
-        for (int i = current_max_level - 1; i >= 0; --i) {
-            while (current->next[i] && current->next[i]->key < key) current = current->next[i];
-        }
-        current = current->next[0];
-        if (current && current->key == key) return current;
-        
-        return nullptr;
-    }
-    
-    std::vector<Node*> get_predecessors(const key_T& key) const {
-        std::vector<Node*> predecessors(current_max_level, nullptr);
-        Node* current = head;
-        for (int i = current_max_level - 1; i >= 0; --i) {
-            while (current->next[i] && current->next[i]->key < key) current = current->next[i];
-           
-            predecessors[i] = current;
-        }
-        return predecessors;
-    }
+    size_t random_level();
+    Node* find_node(const key_T& key) const;
+    std::vector<Node*> get_predecessors(const key_T& key) const;
 
 public:
     class iterator {
@@ -82,131 +55,34 @@ public:
         
     public:
         iterator(skip_list* list, Node* node) : current_list(list), current_node(node) {}
-        
         iterator(const iterator& other) : current_list(other.current_list), current_node(other.current_node) {}
         
-        operator bool() const {
-            return current_node != nullptr;
-        }
-        
-        iterator& operator++() {
-            if (current_node) current_node = current_node->next[0];
-            
-            return *this;
-        }
-        
-        iterator operator++(int) {
-            iterator temp = *this;
-            ++(*this);
-            return temp;
-        }
-        
-        iterator& operator--() {
-            if (current_node) current_node = current_node->prev;
-            
-            return *this;
-        }
-        
-        iterator operator--(int) {
-            iterator temp = *this;
-            --(*this);
-            return temp;
-        }
-        
-        iterator& operator+=(size_t n) {
-            while (n-- > 0 && current_node) current_node = current_node->next[0];
-            return *this;
-        }
-        
-        iterator& operator-=(size_t n) {
-            while (n-- > 0 && current_node) current_node = current_node->prev;
-           
-            return *this;
-        }
-        
-        iterator& operator=(const iterator& other) {
-            current_list = other.current_list;
-            current_node = other.current_node;
-            return *this;
-        }
-        
-        T& operator*() {
-            return current_node->value;
-        }
-        
-        T* operator->() {
-            return &(current_node->value);
-        }
-        
-        bool operator==(const iterator& other) const {
-            return current_node == other.current_node;
-        }
-        
-        bool operator!=(const iterator& other) const {
-            return !(*this == other);
-        }
-        
-        void remove() {if (current_node) current_list->remove(current_node->key);}
-        
-        key_T get_key() const {return current_node->key;}
+        operator bool() const { return current_node != nullptr; }
+        iterator& operator++() { if (current_node) current_node = current_node->next[0]; return *this; }
+        iterator operator++(int) { iterator temp = *this; ++(*this); return temp; }
+        iterator& operator--() { if (current_node) current_node = current_node->prev; return *this; }
+        iterator operator--(int) { iterator temp = *this; --(*this); return temp; }
+        iterator& operator+=(size_t n) { while (n-- > 0 && current_node) current_node = current_node->next[0]; return *this; }
+        iterator& operator-=(size_t n) { while (n-- > 0 && current_node) current_node = current_node->prev; return *this; }
+        iterator& operator=(const iterator& other) { current_list = other.current_list; current_node = other.current_node; return *this; }
+        T& operator*() { return current_node->value; }
+        T* operator->() { return &(current_node->value); }
+        bool operator==(const iterator& other) const { return current_node == other.current_node; }
+        bool operator!=(const iterator& other) const { return !(*this == other); }
+        void remove() { if (current_node) current_list->remove(current_node->key); }
+        key_T get_key() const { return current_node->key; }
     };
     
-    skip_list(size_t in_max_level = 16, double in_skip_prob = 0.5) 
-        : max_level(in_max_level), skip_probability(in_skip_prob), 
-          current_max_level(1), element_count(0),
-          gen(std::time(0)), dis(0.0, 1.0) {
-        head = new Node(key_T(), T(), nullptr, max_level);
-        tail = new Node(key_T(), T(), nullptr, max_level);
-        for (size_t i = 0; i < max_level; ++i) {
-            head->next[i] = tail;
-        }
-        tail->prev = head;
-    }
+    skip_list(size_t in_max_level = 16, double in_skip_prob = 0.5);
+    ~skip_list();
     
-    ~skip_list() {
-        clear();
-        delete head;
-        delete tail;
-    }
-    
-    iterator begin() {return iterator(this, head->next[0] != tail ? head->next[0] : nullptr);}
-    
-    iterator end() {return iterator(this, nullptr);}
-    
+    iterator begin() { return iterator(this, head->next[0] != tail ? head->next[0] : nullptr); }
+    iterator end() { return iterator(this, nullptr); }
     void insert(const key_T& key, const T& value);
-    
     void remove(const key_T& key);
-    
-    iterator find(const key_T& key) {
-        Node* node = find_node(key);
-        return iterator(this, node);
-    }
-    
-    T& operator[](const key_T& key) {
-        Node* node = find_node(key);
-        if (!node) {
-            insert(key, T());
-            node = find_node(key);
-        }
-        return node->value;
-    }
-    
-    size_t size() const { return element_count;}
-    
-    bool empty() const {return element_count == 0;}
-    
+    iterator find(const key_T& key) { return iterator(this, find_node(key)); }
+    T& operator[](const key_T& key);
+    size_t size() const { return element_count; }
+    bool empty() const { return element_count == 0; }
     void clear();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
