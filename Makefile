@@ -1,11 +1,14 @@
+# Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -g
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g
 LDFLAGS = -lgtest -lgtest_main -lpthread
 
-# Automatically find all .cpp files
+# Targets
+TARGET = skip_list_test
+
+# Automatically find all source files
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
-TARGET = skip_list_test
 
 .PHONY: all test clean
 
