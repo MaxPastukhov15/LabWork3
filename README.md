@@ -1,4 +1,4 @@
-# LabWork 1
+# LabWork 3
 ## Author
 Pastukhov Maksim Germanovich, группа 24.Б82-мм
 ## Contacts
