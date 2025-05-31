@@ -1,27 +1,29 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g -I
 LDFLAGS = -lgtest -lgtest_main -lpthread
 
+SRC = test.cpp
+HEADER = skip_list.hpp
+OBJ = $(SRC:.cpp=.o)
 # Targets
 TARGET = skip_list_test
-
-# Automatically find all source files
-SRCS = $(wildcard *.cpp)
-OBJS = $(SRCS:.cpp=.o)
-
-.PHONY: all test clean
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-%.o: %.cpp skip_list.hpp
+%.o: %.cpp $(HEADER)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 test: $(TARGET)
 	./$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGET) $(OBJ)
+format:
+	astyle -A1 -s4 *.cpp *.hpp
+ 
+
+.PHONY: all test clean
