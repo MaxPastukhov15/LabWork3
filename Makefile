@@ -7,7 +7,7 @@ SRC = test.cpp
 HEADER = skip_list.hpp
 OBJ = $(SRC:.cpp=.o)
 # Targets
-TARGET = skip_list_test
+TARGET = test_sl
 
 all: $(TARGET)
 
