@@ -59,30 +59,27 @@ private:
     }
     
     Node* find_node(const key_T& key) const {
-        Node* current = head;
-        for (int i = current_max_level - 1; i >= 0; --i) {
-            while (current->next[i] !=tail && current->next[i]->key < key) {
-                current = current->next[i];
-            }
+    Node* current = head;
+    for (int i = current_max_level - 1; i >= 0; --i) {
+        while (current->next[i] != tail && current->next[i]->key < key) {
+            current = current->next[i];
         }
-        current = current->next[0];
-        if (current != tail && current->key == key) {
-            return current;
-        }
-        return nullptr;
+    }
+    current = current->next[0];
+    return (current != tail && current->key == key) ? current : nullptr;
     }
     
     std::vector<Node*> get_predecessors(const key_T& key) const {
-        std::vector<Node*> predecessors(current_max_level, nullptr);
-        Node* current = head;
-        for (int i = current_max_level - 1; i >= 0; --i) {
-            while (current->next[i] && current->next[i]->key < key) {
-                current = current->next[i];
-            }
-            predecessors[i] = current;
+    std::vector<Node*> predecessors(current_max_level, nullptr);
+    Node* current = head;
+    for (int i = current_max_level - 1; i >= 0; --i) {
+        while (current->next[i] != tail && current->next[i]->key < key) {
+            current = current->next[i];
         }
-        return predecessors;
+        predecessors[i] = current;
     }
+    return predecessors;
+}
 
 public:
     class iterator {
@@ -100,15 +97,14 @@ public:
         }
         
         iterator& operator++() {
-            if (current_node) {
-                current_node = current_node->next[0];
-                if (current_node && current_node == current_list->tail){
-                	current_node = nullptr;
-                }
-            }
-            
-            return *this;
+    if (current_node) {
+        current_node = current_node->next[0];
+        if (current_node && current_node == current_list->tail) {
+            current_node = nullptr;
         }
+    }
+    return *this;
+}
         
         iterator operator++(int) {
             iterator temp = *this;
@@ -190,16 +186,16 @@ public:
     };
     
     skip_list(size_t in_max_level = 16, double in_skip_prob = 0.5) 
-        : max_level(in_max_level), skip_probability(in_skip_prob), 
-          current_max_level(1), element_count(0),
-          gen(std::time(0)), dis(0.0, 1.0) {
-        head = new Node(key_T(), T(), nullptr, max_level);
-        tail = new Node(key_T(), T(), nullptr, max_level);
-        for (size_t i = 0; i < max_level; ++i) {
-            head->next[i] = tail;
-        }
-        tail->prev = head;
+    : max_level(in_max_level), skip_probability(in_skip_prob), 
+      current_max_level(1), element_count(0),
+      gen(std::time(0)), dis(0.0, 1.0) {
+    head = new Node(key_T(), T(), nullptr, max_level);
+    tail = new Node(key_T(), T(), head, max_level);
+    for (size_t i = 0; i < max_level; ++i) {
+        head->next[i] = tail;
     }
+    tail->prev = head;
+}
     
     ~skip_list() {
         clear();
