@@ -1,6 +1,6 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g -I
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g
 LDFLAGS = -lgtest -lgtest_main -lpthread
 
 SRC = test.cpp
@@ -11,7 +11,7 @@ TARGET = skip_list_test
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
+$(TARGET): $(OBJ)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 %.o: %.cpp $(HEADER)
@@ -22,8 +22,9 @@ test: $(TARGET)
 
 clean:
 	rm -f $(TARGET) $(OBJ)
+
 format:
 	astyle -A1 -s4 *.cpp *.hpp
- 
 
-.PHONY: all test clean
+.PHONY: all test clean format
+
