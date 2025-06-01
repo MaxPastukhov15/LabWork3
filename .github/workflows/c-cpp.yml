@@ -29,7 +29,8 @@ jobs:
 
       - name: Build and run tests 
         run: |
-          make 
+          make
+          ./test_sl
 
       
         
