@@ -1,4 +1,4 @@
-name: STL container ski_list
+name: STL container skip_list
 
 on:
   push:
