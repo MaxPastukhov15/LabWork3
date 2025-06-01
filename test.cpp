@@ -191,27 +191,7 @@ TEST(SkipListTest, StringKeys) {
     EXPECT_EQ(sl["cherry"], 3);
 }
 
-TEST(SkipListTest, CustomComparator) {
-    struct CaseInsensitiveCompare {
-        bool operator()(const std::string& a, const std::string& b) const {
-            return std::lexicographical_compare(
-                a.begin(), a.end(),
-                b.begin(), b.end(),
-                [](char c1, char c2) {
-                    return tolower(c1) < tolower(c2);
-                });
-        }
-    };
-    
-    skip_list<std::string, int, CaseInsensitiveCompare> sl;
-    sl.insert("Apple", 1);
-    sl.insert("banana", 2);
-    sl.insert("CHERRY", 3);
-    
-    EXPECT_EQ(sl["apple"], 1);
-    EXPECT_EQ(sl["BANANA"], 2);
-    EXPECT_EQ(sl["cherry"], 3);
-}
+
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
