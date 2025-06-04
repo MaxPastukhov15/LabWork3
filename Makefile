@@ -1,6 +1,6 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -g -Iinclude
+CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g -Iinclude
 LDFLAGS = -lgtest -lgtest_main -lpthread -pthread
 
 # Source files
