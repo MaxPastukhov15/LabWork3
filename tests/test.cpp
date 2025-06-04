@@ -1,3 +1,4 @@
+//Maksim Pastukhov (st131119@student.spbu.ru)
 #include <gtest/gtest.h>
 #include "skip_list.hpp"
 #include <string>
