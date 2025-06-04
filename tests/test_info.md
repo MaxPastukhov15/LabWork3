@@ -30,12 +30,3 @@ This test suite verifies the functionality of the `skip_list` template class imp
 - **LargeInsertAndFind**: Tests with 1000 elements to verify scaling
 - **StringKeys**: Tests with string keys to verify template flexibility
 
-## Test Details
-
-### ConstructorAndEmpty
-```cpp
-TEST(SkipListTest, ConstructorAndEmpty) {
-    skip_list<int, std::string> sl;
-    EXPECT_TRUE(sl.empty());
-    EXPECT_EQ(sl.size(), 0);
-}
