@@ -73,10 +73,6 @@ private:
     std::mt19937 gen;          ///< Random number generator
     std::uniform_real_distribution<> dis; ///< Uniform distribution for level generation
 
-    // Random number generation for determining node levels
-    std::mt19937 gen;
-    std::uniform_real_distribution<> dis;
-
     /**
      * @brief Generates a random level for new nodes
      * @return A random level between 1 and max_level
