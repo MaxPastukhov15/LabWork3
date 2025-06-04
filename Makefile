@@ -1,27 +1,37 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g
-LDFLAGS = -lgtest -lgtest_main -lpthread
+CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -g -Iinclude
+LDFLAGS = -lgtest -lgtest_main -lpthread -pthread
 
-SRC = test.cpp
-HEADER = skip_list.hpp
+# Source files
+SRC = src/skip_list.cpp
+TEST_SRC = tests/test.cpp
+
+# Object files
 OBJ = $(SRC:.cpp=.o)
-# Targets
+TEST_OBJ = $(TEST_SRC:.cpp=.o)
+
+# Target
 TARGET = test_sl
+
+.PHONY: all clean test
 
 all: $(TARGET)
 
-$(TARGET): $(OBJ)
-	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+$(TARGET): $(OBJ) $(TEST_OBJ)
+    $(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
-%.o: %.cpp $(HEADER)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+%.o: %.cpp
+    $(CXX) $(CXXFLAGS) -c $< -o $@
 
 test: $(TARGET)
-	./$(TARGET)
+    ./$(TARGET)
 
 clean:
-	rm -f $(TARGET) $(OBJ)
+    rm -f $(TARGET) $(OBJ) $(TEST_OBJ)
+
+format:
+    astyle -A1 -s4 include/*.hpp src/*.cpp tests/*.cppTARGET) $(OBJ) $(TEST_OBJ)
 
 format:
 	astyle -A1 -s4 *.cpp *.hpp
