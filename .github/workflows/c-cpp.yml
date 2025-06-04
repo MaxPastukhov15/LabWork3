@@ -2,9 +2,9 @@ name: STL container skip_list
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "working" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "working" ]
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
           submodules: 'recursive'
 
       - name: Install dependencies
-        run: sudo apt update && sudo apt install -y g++ make cmake libeigen3-dev 
+        run: sudo apt update && sudo apt install -y g++ make cmake 
 
       - name: Install Google Test
         run: |
