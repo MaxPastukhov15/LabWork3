@@ -2,9 +2,9 @@ name: STL container skip_list
 
 on:
   push:
-    branches: [ "working" ]
+    branches: [ "dev-branch" ]
   pull_request:
-    branches: [ "working" ]
+    branches: [ "dev-branch" ]
 
 jobs:
   build:
