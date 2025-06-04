@@ -1,14 +1,12 @@
 # Compiler settings
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -g -Iinclude
+CXXFLAGS = -Wall -Wextra -Wpedantic -g -Iinclude
 LDFLAGS = -lgtest -lgtest_main -lpthread -pthread
 
 # Source files
-SRC = src/skip_list.cpp
 TEST_SRC = tests/test.cpp
 
 # Object files
-OBJ = $(SRC:.cpp=.o)
 TEST_OBJ = $(TEST_SRC:.cpp=.o)
 
 # Target
@@ -18,7 +16,7 @@ TARGET = test_sl
 
 all: $(TARGET)
 
-$(TARGET): $(OBJ) $(TEST_OBJ)
+$(TARGET): $(TEST_OBJ)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 %.o: %.cpp
@@ -28,7 +26,7 @@ test: $(TARGET)
 	./$(TARGET)
 
 clean:
-	rm -f $(TARGET) $(OBJ) $(TEST_OBJ)
+	rm -f $(TARGET) $(TEST_OBJ)
 
 format:
-	astyle -A1 -s4 include/*.hpp src/*.cpp tests/*.cpp
+	astyle -A1 -s4 include/*.hpp tests/*.cpp
