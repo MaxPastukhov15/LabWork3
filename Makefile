@@ -14,27 +14,21 @@ TEST_OBJ = $(TEST_SRC:.cpp=.o)
 # Target
 TARGET = test_sl
 
-.PHONY: all clean test
+.PHONY: all clean test format
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ) $(TEST_OBJ)
-    $(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 %.o: %.cpp
-    $(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 test: $(TARGET)
-    ./$(TARGET)
+	./$(TARGET)
 
 clean:
-    rm -f $(TARGET) $(OBJ) $(TEST_OBJ)
+	rm -f $(TARGET) $(OBJ) $(TEST_OBJ)
 
 format:
-    astyle -A1 -s4 include/*.hpp src/*.cpp tests/*.cppTARGET) $(OBJ) $(TEST_OBJ)
-
-format:
-	astyle -A1 -s4 *.cpp *.hpp
-
-.PHONY: all test clean format
-
+	astyle -A1 -s4 include/*.hpp src/*.cpp tests/*.cpp
