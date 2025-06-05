@@ -32,4 +32,4 @@ clean:
 	rm -f $(TARGET) $(TEST_OBJ)
 
 format:
-	astyle -A1 -s4 include/*.hpp tests/*.cpp
+	astyle -A1 -s4 include/*.hpp tests/*.cpp src/*.ipp

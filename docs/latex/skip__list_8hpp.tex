@@ -1,0 +1,47 @@
+\hypertarget{skip__list_8hpp}{}\doxysection{include/skip\+\_\+list.hpp File Reference}
+\label{skip__list_8hpp}\index{include/skip\_list.hpp@{include/skip\_list.hpp}}
+
+
+A template implementation of a skip list data structure.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include \char`\"{}skip\+\_\+list.\+ipp\char`\"{}}\newline
+Include dependency graph for skip\+\_\+list.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{skip__list_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{skip__list_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classskip__list}{skip\+\_\+list$<$ key\+\_\+\+T, T $>$}}
+\begin{DoxyCompactList}\small\item\em A skip list container that provides fast search, insertion, and deletion. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structskip__list_1_1Node}{skip\+\_\+list$<$ key\+\_\+\+T, T $>$\+::\+Node}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structskip__list_1_1Node}{Node}} structure representing elements in the skip list. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classskip__list_1_1iterator}{skip\+\_\+list$<$ key\+\_\+\+T, T $>$\+::iterator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A template implementation of a skip list data structure. 
+
+\begin{DoxyAuthor}{Author}
+Maksim Pastukhov (\href{mailto:st131119@student.spbu.ru}{\texttt{ st131119@student.\+spbu.\+ru}})
+\end{DoxyAuthor}
+This file contains a complete implementation of a skip list, which is a probabilistic data structure that allows for average-\/case O(log n) search, insertion, and deletion operations. The skip list maintains multiple levels of linked lists, with higher levels skipping over many elements to provide faster search paths. 
