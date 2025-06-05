@@ -120,4 +120,16 @@ A template-based skip list implementation with STL-like interface.
   --it; // Move to the previous element
   std::cout << "Value: " << *it << std::endl; // Dereference the iterator
   ```
+  
+### To watch doxygen documentation(Linux)
+```bash
 
+xdg-open docs/html/index.html 
+```
+
+### Run
+```bash
+
+make
+./test_sl 
+```
