@@ -1,0 +1,355 @@
+\hypertarget{classskip__list_1_1iterator}{}\doxysection{skip\+\_\+list$<$ key\+\_\+T, T $>$\+::iterator Class Reference}
+\label{classskip__list_1_1iterator}\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+
+
+{\ttfamily \#include $<$skip\+\_\+list.\+hpp$>$}
+
+
+
+Collaboration diagram for skip\+\_\+list$<$ key\+\_\+T, T $>$\+::iterator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{classskip__list_1_1iterator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classskip__list_1_1iterator_a3e0ffdd4ec9c7c8410ddd6aeb532946e}{iterator}} (\mbox{\hyperlink{classskip__list}{skip\+\_\+list}} $\ast$list, \mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Constructs a new iterator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator_a3e8b6332d425575cd453ffb2478e0617}{iterator}} (const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator_a399c41f04ec8dac80c291acd3600a487}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Conversion to bool (true if iterator points to valid element) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list_1_1iterator_aa72ee8626aca1ee19b065b287b6fee49}{operator++}} ()
+\begin{DoxyCompactList}\small\item\em Prefix increment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \mbox{\hyperlink{classskip__list_1_1iterator_ac5c3f31f562c7e9982ba473973066bf2}{operator++}} (int)
+\begin{DoxyCompactList}\small\item\em Postfix increment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list_1_1iterator_abf22cb8ffb141a609d62afb540a75671}{operator-\/-\/}} ()
+\begin{DoxyCompactList}\small\item\em Prefix decrement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \mbox{\hyperlink{classskip__list_1_1iterator_a57dd9093a8c7889bb9fc87d96640f837}{operator-\/-\/}} (int)
+\begin{DoxyCompactList}\small\item\em Postfix decrement. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list_1_1iterator_aab38376b1638d8cd6a5062501807d555}{operator+=}} (size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Compound addition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list_1_1iterator_afe22f64487b7e3ab3124d47e2a881855}{operator-\/=}} (size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Compound subtraction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list_1_1iterator_ac2f4f610eafd782938c9590f8f176e07}{operator=}} (const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&other)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classskip__list_1_1iterator_a0b8a95b139a41bd5f19aa7db4e80013e}{operator$\ast$}} ()
+\begin{DoxyCompactList}\small\item\em Dereference operator. \end{DoxyCompactList}\item 
+T $\ast$ \mbox{\hyperlink{classskip__list_1_1iterator_a34835b9953b4ae96220b6118ddb18427}{operator-\/$>$}} ()
+\begin{DoxyCompactList}\small\item\em Member access operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classskip__list_1_1iterator_aede8ee35525c4495eb88859fe9e3b7ab}{operator==}} (const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&other) const
+\begin{DoxyCompactList}\small\item\em Equality comparison. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classskip__list_1_1iterator_aa5bd5b7ca593b48c0905f9c5711eaf03}{operator!=}} (const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&other) const
+\begin{DoxyCompactList}\small\item\em Inequality comparison. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classskip__list_1_1iterator_a254fb7d8a8f281722458bab175aaeda5}{remove}} ()
+\begin{DoxyCompactList}\small\item\em Remove current element from the skip list. \end{DoxyCompactList}\item 
+key\+\_\+T \mbox{\hyperlink{classskip__list_1_1iterator_af89d0dd69c952db8075f52462ed21738}{get\+\_\+key}} () const
+\begin{DoxyCompactList}\small\item\em Get current element\textquotesingle{}s key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}} $\ast$ \mbox{\hyperlink{classskip__list_1_1iterator_ade38b3cc77a97b4a51ec386d17281b8a}{current\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Pointer to the containing skip list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ \mbox{\hyperlink{classskip__list_1_1iterator_a733865c9253a464b5606260ed0f5fd74}{current\+\_\+node}}
+\begin{DoxyCompactList}\small\item\em Pointer to current node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classskip__list_1_1iterator_a3e0ffdd4ec9c7c8410ddd6aeb532946e}\label{classskip__list_1_1iterator_a3e0ffdd4ec9c7c8410ddd6aeb532946e}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{iterator()}{iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classskip__list}{skip\+\_\+list}} $\ast$}]{list,  }\item[{\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Constructs a new iterator. 
+
+Iterator constructor implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the skip list \\
+\hline
+{\em node} & Pointer to the current node \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classskip__list_1_1iterator_a3e8b6332d425575cd453ffb2478e0617}\label{classskip__list_1_1iterator_a3e8b6332d425575cd453ffb2478e0617}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{iterator()}{iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::iterator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+Iterator copy constructor implementation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classskip__list_1_1iterator_af89d0dd69c952db8075f52462ed21738}\label{classskip__list_1_1iterator_af89d0dd69c952db8075f52462ed21738}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!get\_key@{get\_key}}
+\index{get\_key@{get\_key}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{get\_key()}{get\_key()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+key\+\_\+T \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::get\+\_\+key}
+
+
+
+Get current element\textquotesingle{}s key. 
+
+Get key implementation.
+
+\begin{DoxyReturn}{Returns}
+The key of the current element 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if iterator is invalid \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classskip__list_1_1iterator_a399c41f04ec8dac80c291acd3600a487}\label{classskip__list_1_1iterator_a399c41f04ec8dac80c291acd3600a487}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator bool}
+
+
+
+Conversion to bool (true if iterator points to valid element) 
+
+Iterator bool conversion implementation.
+
+\begin{DoxyReturn}{Returns}
+true if iterator points to a valid element, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classskip__list_1_1iterator_aa5bd5b7ca593b48c0905f9c5711eaf03}\label{classskip__list_1_1iterator_aa5bd5b7ca593b48c0905f9c5711eaf03}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+bool \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Inequality comparison. 
+
+Inequality operator implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Iterator to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if iterators point to different nodes, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classskip__list_1_1iterator_a0b8a95b139a41bd5f19aa7db4e80013e}\label{classskip__list_1_1iterator_a0b8a95b139a41bd5f19aa7db4e80013e}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+T \& \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator$\ast$}
+
+
+
+Dereference operator. 
+
+Dereference operator implementation.
+
+\begin{DoxyReturn}{Returns}
+Reference to the current element\textquotesingle{}s value 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if iterator is invalid \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classskip__list_1_1iterator_aa72ee8626aca1ee19b065b287b6fee49}\label{classskip__list_1_1iterator_aa72ee8626aca1ee19b065b287b6fee49}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator++}
+
+
+
+Prefix increment. 
+
+Prefix increment implementation. \mbox{\Hypertarget{classskip__list_1_1iterator_ac5c3f31f562c7e9982ba473973066bf2}\label{classskip__list_1_1iterator_ac5c3f31f562c7e9982ba473973066bf2}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+Postfix increment. 
+
+Postfix increment implementation. \mbox{\Hypertarget{classskip__list_1_1iterator_aab38376b1638d8cd6a5062501807d555}\label{classskip__list_1_1iterator_aab38376b1638d8cd6a5062501807d555}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator+= (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Compound addition. 
+
+Compound addition implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of positions to advance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the updated iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classskip__list_1_1iterator_abf22cb8ffb141a609d62afb540a75671}\label{classskip__list_1_1iterator_abf22cb8ffb141a609d62afb540a75671}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator-\/-\/}
+
+
+
+Prefix decrement. 
+
+Prefix decrement implementation. \mbox{\Hypertarget{classskip__list_1_1iterator_a57dd9093a8c7889bb9fc87d96640f837}\label{classskip__list_1_1iterator_a57dd9093a8c7889bb9fc87d96640f837}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
+
+
+
+Postfix decrement. 
+
+Postfix decrement implementation. \mbox{\Hypertarget{classskip__list_1_1iterator_afe22f64487b7e3ab3124d47e2a881855}\label{classskip__list_1_1iterator_afe22f64487b7e3ab3124d47e2a881855}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator-\/= (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Compound subtraction. 
+
+Compound subtraction implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of positions to retreat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the updated iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classskip__list_1_1iterator_a34835b9953b4ae96220b6118ddb18427}\label{classskip__list_1_1iterator_a34835b9953b4ae96220b6118ddb18427}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+T $\ast$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator-\/$>$}
+
+
+
+Member access operator. 
+
+Member access operator implementation.
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current element\textquotesingle{}s value 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if iterator is invalid \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classskip__list_1_1iterator_ac2f4f610eafd782938c9590f8f176e07}\label{classskip__list_1_1iterator_ac2f4f610eafd782938c9590f8f176e07}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator=@{operator=}}
+\index{operator=@{operator=}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \& \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assignment operator. 
+
+Assignment operator implementation. \mbox{\Hypertarget{classskip__list_1_1iterator_aede8ee35525c4495eb88859fe9e3b7ab}\label{classskip__list_1_1iterator_aede8ee35525c4495eb88859fe9e3b7ab}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+bool \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classskip__list_1_1iterator}{iterator}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Equality comparison. 
+
+Equality operator implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Iterator to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if iterators point to same node, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classskip__list_1_1iterator_a254fb7d8a8f281722458bab175aaeda5}\label{classskip__list_1_1iterator_a254fb7d8a8f281722458bab175aaeda5}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!remove@{remove}}
+\index{remove@{remove}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+void \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::remove}
+
+
+
+Remove current element from the skip list. 
+
+Remove current element implementation. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classskip__list_1_1iterator_ade38b3cc77a97b4a51ec386d17281b8a}\label{classskip__list_1_1iterator_ade38b3cc77a97b4a51ec386d17281b8a}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!current\_list@{current\_list}}
+\index{current\_list@{current\_list}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{current\_list}{current\_list}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$\ast$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::current\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to the containing skip list. 
+
+\mbox{\Hypertarget{classskip__list_1_1iterator_a733865c9253a464b5606260ed0f5fd74}\label{classskip__list_1_1iterator_a733865c9253a464b5606260ed0f5fd74}} 
+\index{skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}!current\_node@{current\_node}}
+\index{current\_node@{current\_node}!skip\_list$<$ key\_T, T $>$::iterator@{skip\_list$<$ key\_T, T $>$::iterator}}
+\doxysubsubsection{\texorpdfstring{current\_node}{current\_node}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}}$\ast$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::iterator\+::current\+\_\+node\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pointer to current node. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{skip__list_8hpp}{skip\+\_\+list.\+hpp}}\item 
+src/\mbox{\hyperlink{skip__list_8ipp}{skip\+\_\+list.\+ipp}}\end{DoxyCompactItemize}

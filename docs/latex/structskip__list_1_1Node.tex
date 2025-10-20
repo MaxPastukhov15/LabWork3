@@ -1,0 +1,181 @@
+\hypertarget{structskip__list_1_1Node}{}\doxysection{skip\+\_\+list$<$ key\+\_\+T, T $>$\+::Node Struct Reference}
+\label{structskip__list_1_1Node}\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+
+
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} structure representing elements in the skip list.  
+
+
+
+
+Collaboration diagram for skip\+\_\+list$<$ key\+\_\+T, T $>$\+::Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{structskip__list_1_1Node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structskip__list_1_1Node_a18484e0b2e0702b0d9f69edd355dcae2}{Node}} (const key\+\_\+T \&in\+\_\+key, const T \&in\+\_\+value, \mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$in\+\_\+prev, size\+\_\+t in\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{structskip__list_1_1Node}{Node}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structskip__list_1_1Node_a803537fd52e0b320f01f40158b162dbb}{$\sim$\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ \mbox{\hyperlink{structskip__list_1_1Node_a54271dd74a99c4f8237eda08639325aa}{previous\+\_\+on\+\_\+level}} (size\+\_\+t in\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Returns the previous node at a specific level. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ \mbox{\hyperlink{structskip__list_1_1Node_abf5492dea815fae8ac4bcdaff64ca8c4}{next\+\_\+on\+\_\+level}} (size\+\_\+t in\+\_\+level)
+\begin{DoxyCompactList}\small\item\em Returns the next node at a specific level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+key\+\_\+T \mbox{\hyperlink{structskip__list_1_1Node_a6cc970c26e0429a1efa44f4db70f876c}{key}}
+\begin{DoxyCompactList}\small\item\em The key used for ordering. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{structskip__list_1_1Node_a574f3fefecd3ef63d00f39880e64ca94}{value}}
+\begin{DoxyCompactList}\small\item\em The stored value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ \mbox{\hyperlink{structskip__list_1_1Node_a004e5458e725e0349d71ee04c63ef54a}{prev}}
+\begin{DoxyCompactList}\small\item\em Pointer to previous node. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ $>$ \mbox{\hyperlink{structskip__list_1_1Node_ac419df1ba06abcbded396d91f6390cf4}{next}}
+\begin{DoxyCompactList}\small\item\em Vector of forward pointers (one for each level) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename key\+\_\+T, typename T$>$\newline
+struct skip\+\_\+list$<$ key\+\_\+\+T, T $>$\+::\+Node}
+
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} structure representing elements in the skip list. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structskip__list_1_1Node_a18484e0b2e0702b0d9f69edd355dcae2}\label{structskip__list_1_1Node_a18484e0b2e0702b0d9f69edd355dcae2}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!Node@{Node}}
+\index{Node@{Node}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::\+Node (\begin{DoxyParamCaption}\item[{const key\+\_\+T \&}]{in\+\_\+key,  }\item[{const T \&}]{in\+\_\+value,  }\item[{\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$}]{in\+\_\+prev,  }\item[{size\+\_\+t}]{in\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{structskip__list_1_1Node}{Node}}. 
+
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} constructor implementation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+key} & The key for the new node \\
+\hline
+{\em in\+\_\+value} & The value for the new node \\
+\hline
+{\em in\+\_\+prev} & Pointer to the previous node \\
+\hline
+{\em in\+\_\+level} & The number of levels for this node \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structskip__list_1_1Node_a803537fd52e0b320f01f40158b162dbb}\label{structskip__list_1_1Node_a803537fd52e0b320f01f40158b162dbb}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!````~Node@{$\sim$Node}}
+\index{````~Node@{$\sim$Node}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{$\sim$Node()}{~Node()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::$\sim$\+Node}
+
+
+
+Destructor. 
+
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}} destructor implementation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structskip__list_1_1Node_abf5492dea815fae8ac4bcdaff64ca8c4}\label{structskip__list_1_1Node_abf5492dea815fae8ac4bcdaff64ca8c4}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!next\_on\_level@{next\_on\_level}}
+\index{next\_on\_level@{next\_on\_level}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{next\_on\_level()}{next\_on\_level()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::next\+\_\+on\+\_\+level (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{in\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+Returns the next node at a specific level. 
+
+Gets next node at specific level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+level} & The level to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the next node at the specified level 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structskip__list_1_1Node_a54271dd74a99c4f8237eda08639325aa}\label{structskip__list_1_1Node_a54271dd74a99c4f8237eda08639325aa}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!previous\_on\_level@{previous\_on\_level}}
+\index{previous\_on\_level@{previous\_on\_level}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{previous\_on\_level()}{previous\_on\_level()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::\mbox{\hyperlink{structskip__list_1_1Node}{Node}} $\ast$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::previous\+\_\+on\+\_\+level (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{in\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+Returns the previous node at a specific level. 
+
+Finds previous node at specific level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+\_\+level} & The level to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the previous node at the specified level 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structskip__list_1_1Node_a6cc970c26e0429a1efa44f4db70f876c}\label{structskip__list_1_1Node_a6cc970c26e0429a1efa44f4db70f876c}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!key@{key}}
+\index{key@{key}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+key\+\_\+T \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::key}
+
+
+
+The key used for ordering. 
+
+\mbox{\Hypertarget{structskip__list_1_1Node_ac419df1ba06abcbded396d91f6390cf4}\label{structskip__list_1_1Node_ac419df1ba06abcbded396d91f6390cf4}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!next@{next}}
+\index{next@{next}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+std\+::vector$<$\mbox{\hyperlink{structskip__list_1_1Node}{Node}}$\ast$$>$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::next}
+
+
+
+Vector of forward pointers (one for each level) 
+
+\mbox{\Hypertarget{structskip__list_1_1Node_a004e5458e725e0349d71ee04c63ef54a}\label{structskip__list_1_1Node_a004e5458e725e0349d71ee04c63ef54a}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!prev@{prev}}
+\index{prev@{prev}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+\mbox{\hyperlink{structskip__list_1_1Node}{Node}}$\ast$ \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::prev}
+
+
+
+Pointer to previous node. 
+
+\mbox{\Hypertarget{structskip__list_1_1Node_a574f3fefecd3ef63d00f39880e64ca94}\label{structskip__list_1_1Node_a574f3fefecd3ef63d00f39880e64ca94}} 
+\index{skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}!value@{value}}
+\index{value@{value}!skip\_list$<$ key\_T, T $>$::Node@{skip\_list$<$ key\_T, T $>$::Node}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+T , typename T $>$ \\
+T \mbox{\hyperlink{classskip__list}{skip\+\_\+list}}$<$ key\+\_\+T, T $>$\+::Node\+::value}
+
+
+
+The stored value. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{skip__list_8hpp}{skip\+\_\+list.\+hpp}}\item 
+src/\mbox{\hyperlink{skip__list_8ipp}{skip\+\_\+list.\+ipp}}\end{DoxyCompactItemize}
